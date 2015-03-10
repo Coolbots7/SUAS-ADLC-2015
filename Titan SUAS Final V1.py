@@ -40,7 +40,9 @@ for fn in img_names:
     #Write the resulting image to the folder Output
     cv2.imwrite(os.path.join('Output', '%s Output.JPG' % fn), res)
 
-    contours = getContours(res,mask)
+    h,s,v = getAveVal(hsv,mask)
+    print getColorHSV(h,s,v)
 
 print 'Done!'
+cv2.waitKey()
 cv2.destroyAllWindows()
