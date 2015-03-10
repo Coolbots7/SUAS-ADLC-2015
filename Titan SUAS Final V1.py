@@ -25,7 +25,7 @@ for fn in img_names:
     h, _, _ = cv2.split(hsv)
 
     #Remove the average hue value from the h channel
-    hMask = cv2.inRange(h, 0, m[0])
+    hMask = cv2.inRange(h, 0, mean[0])
 
     #Erode / Dialate the mask 'nIt' times to eliminate noise
     dilate = cv2.dilate(hMask, kernel, iterations=nIt)
@@ -39,6 +39,8 @@ for fn in img_names:
 
     #Write the resulting image to the folder Output
     cv2.imwrite(os.path.join('Output', '%s Output.JPG' % fn), res)
+
+    contours = getContours(res,mask)
 
 print 'Done!'
 cv2.destroyAllWindows()
