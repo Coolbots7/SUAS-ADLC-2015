@@ -3,6 +3,8 @@ import cv2
 from glob import glob
 import os
 
+from functions import *
+
 #Erode / Dialate Kernel
 kernel = np.ones((5,5),np.uint8)
 
