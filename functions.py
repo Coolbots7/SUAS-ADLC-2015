@@ -11,3 +11,8 @@ def getAveColor(img,mask):
     print aveColor
     return aveColor
     
+def getAngle(cnt):
+    (x,y),(MA,ma),angle = cv2.fitEllipse(cnt)
+
+    print angle
+    return angle
