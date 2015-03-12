@@ -43,6 +43,9 @@ for fn in img_names:
     h,s,v = getAveVal(hsv,mask)
     print getColorHSV(h,s,v)
 
+    #Move completed image to folder
+    os.rename(fn, "Completed/%s" % fn)
+
 print 'Done!'
 cv2.waitKey()
 cv2.destroyAllWindows()
