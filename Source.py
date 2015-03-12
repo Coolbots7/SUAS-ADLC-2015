@@ -3,7 +3,7 @@ import cv2
 from glob import glob
 import os
 
-from functions import *
+from imageAnalysisFunctions import *
 
 #Erode / Dialate Kernel
 kernel = np.ones((5,5),np.uint8)
@@ -46,6 +46,6 @@ for fn in img_names:
     #Move completed image to folder
     os.rename(fn, "Completed/%s" % fn)
 
-print 'Done!'
+    print 'Completed %s' % fn
 cv2.waitKey()
 cv2.destroyAllWindows()
