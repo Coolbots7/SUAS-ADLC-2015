@@ -1,0 +1,1 @@
+copy /y C:\Users\Coolbots7\Desktop\*.JPG C:\Users\Coolbots7\Documents\GitHub\SUAS-ADLC-2015
