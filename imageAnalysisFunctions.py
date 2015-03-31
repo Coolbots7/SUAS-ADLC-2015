@@ -4,7 +4,6 @@ import cv2
 def getAveVal(img,mask):
     v1,v2,v3,_ = cv2.mean(img,mask = mask)
     
-    print v1,v2,v3
     return v1,v2,v3
 
 def getColorHSV(h,s,v):
@@ -45,10 +44,8 @@ def getAngle(img,cnt):
 
 def getContours(img, mask):
     _,contours, hierarchy = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    cv2.drawContours(img, contours, -1, (0,255,0), 2)
 
-    print len(contours)
-    return img, contours
+    return contours
 
 def fitLine(img,cnt):
     rows,cols = img.shape[:2]
@@ -58,3 +55,15 @@ def fitLine(img,cnt):
     cv2.line(img,(cols-1,righty),(0,lefty),(0,255,0),2)
 
     return img
+
+def drawBoundingRect(img,cnt):
+    x,y,w,h = cv2.boundingRect(cnt)
+    img = cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2)
+    return img
+
+def cropImage(img,cnt):
+    x,y,w,h = cv2.boundingRect(cnt)
+    wa = w*0.1
+    ha = h*0.1
+    crop = img[y-ha:y+h+ha,x-wa:x+w+wa]
+    return crop
