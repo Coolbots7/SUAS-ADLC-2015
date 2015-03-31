@@ -32,6 +32,13 @@ def getColorHSV(h,s,v):
             return 'Pink'
         else:
             return 'Red'
+
+def getCenter(cnt):
+    M = cv2.moments(cnt)
+    cx = int(M['m10']/M['m00'])
+    cy = int(M['m01']/M['m00'])
+    return cx, cy
+    
     
 def getAngle(img,cnt):
     ellipse = cv2.fitEllipse(cnt)
