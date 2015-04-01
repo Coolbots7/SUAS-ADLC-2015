@@ -38,6 +38,11 @@ def getCenter(cnt):
     cx = int(M['m10']/M['m00'])
     cy = int(M['m01']/M['m00'])
     return cx, cy
+
+def drawCenter(img, cnt):
+    cx,cy = getCenter(cnt)
+    cv2.circle(img,(cx,cy),5,(0,255,0))
+    
     
     
 def getAngle(img,cnt):

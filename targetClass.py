@@ -19,6 +19,10 @@ class Target:
     def getPos(self):
         return self.latitude, self.longitude
 
+    def setPos(self, cx,cy):
+        self.latitude = cx
+        self.longitude = cy
+
     def setTargetColor(self, color):
         self.targetColor = color
 

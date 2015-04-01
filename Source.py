@@ -63,6 +63,8 @@ while True:
                     targetCnt +=1
                     targets.append(Target(targetCnt))
 
+                    drawCenter(img,cnt)
+
                     #isolate target
                     crop = cropImage(img,cnt)
                     cropMask = cropImage(mask,cnt)
@@ -75,6 +77,10 @@ while True:
                     h,s,v = getAveVal(hsv,cropMask)
                     targets[targetCnt-1].setTargetColor(str(getColorHSV(h,s,v)))
                     
+                    #get target position
+                    cx,cy = getCenter(cnt)
+                    targets[targetCnt-1].setPos(cx,cy)
+
                     #save isolatd image
                     cv2.imwrite(os.path.join('Targets', 'Target %i.jpg' % targetCnt), crop)
 
